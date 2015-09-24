@@ -1,6 +1,16 @@
 <head>
     <title> Sign up! </title>
     <link rel="stylesheet" type="text/css" href="static/bootstrap.min.css">
+    <style>
+        body {
+            background-color : #500000;
+            color: white;
+        }
+
+        .modal {
+            color:black;
+        }
+    </style>
     <script src="static/jquery-1.11.3.min.js"></script>
     <script src="static/bootstrap.min.js"></script>
     <script type="text/javascript">
@@ -31,9 +41,10 @@
     <div class="container">
         <div class="row row-centered">
             <div class="col-lg-1 col-centered">
-                <h1> Toastrack Society</h1>
+                <h1 style="text-align: center;">Toastrack Society</h1>
             </div>
         </div>
+        <br/>
         <div class="row row-centered">
             <div class="col-lg-1 col-centered">
                 <form class="form-horizontal" method="post" id="signup-form">
@@ -52,7 +63,7 @@
             </div>
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
-                    <button type="submit" class="btn btn-info">Sign up</button>
+                    <button type="submit" class="btn btn-primary">Sign up</button>
                 </div>
             </div>
             </form>
@@ -64,13 +75,13 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Thanks!</h4>
+                    <h4 class="modal-title" id="myModalLabel">Signed Up</h4>
                 </div>
                 <div class="modal-body">
-                    Thank you for signing up!
+                    Thanks for signing up!
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal" id="thanks-close">Close</button>
+                    <button type="button" class="btn btn-info" data-dismiss="modal" id="thanks-close">Close</button>
                 </div>
             </div>
         </div>
