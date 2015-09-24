@@ -1,2 +1,78 @@
-<h1> Hello! </h1>
-<p> it works </p>
+<head>
+    <title> Sign up! </title>
+    <link rel="stylesheet" type="text/css" href="static/bootstrap.min.css">
+    <script src="static/jquery-1.11.3.min.js"></script>
+    <script src="static/bootstrap.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        $("#signup-form").submit(function(e) {
+            e.preventDefault();
+            $.ajax({
+                url: '/signed_up',
+                type: 'post',
+                data: $('#signup-form').serialize(),
+                success: function() {
+                    $('#thanks-modal').modal('show')
+                    $(".clearonsubmit").val('');
+
+                    setTimeout(function() {
+                        $('#thanks-modal').modal('hide')
+                        $('#name').focus()
+                    }, 5000)
+                }
+            });
+        });
+
+    });
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row row-centered">
+            <div class="col-lg-1 col-centered">
+                <h1> Toastrack Society</h1>
+            </div>
+        </div>
+        <div class="row row-centered">
+            <div class="col-lg-1 col-centered">
+                <form class="form-horizontal" method="post" id="signup-form">
+                    <div class="form-group">
+                        <label for="name" class="col-sm-2 control-label">Name:</label>
+                        <div class="col-sm-10">
+                            <input class="form-control clearonsubmit" name="name" id="name" placeholder="Name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="col-sm-2 control-label">Email:</label>
+                        <div class="col-sm-10">
+                                <input class="form-control clearonsubmit" name="email" id="email" placeholder="Email">
+                        </div>
+                    </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-info">Sign up</button>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+    </div>
+    <div class="modal fade" id="thanks-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Thanks!</h4>
+                </div>
+                <div class="modal-body">
+                    Thank you for signing up!
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" id="thanks-close">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
